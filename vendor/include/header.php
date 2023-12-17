@@ -124,14 +124,14 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                                <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-6.jpg"
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1">Patrick</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i>
+                                <a class="dropdown-item" href="pages-profile.php"><i class="bx bx-user font-size-16 align-middle me-1"></i>
                                     Profile</a>
                                 <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> My
                                     Wallet</a>

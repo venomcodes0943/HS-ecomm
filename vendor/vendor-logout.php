@@ -2,4 +2,4 @@
 session_start();
 session_unset();
 session_destroy();
-header('location:dash-login.php');
+header('location:../profile.php');

@@ -18,7 +18,7 @@ include_once 'include/head.php';
                                 <h5 class="text-white font-size-20">Welcome Back !</h5>
                                 <p class="text-white-50 mb-0">Sign in to continue to Selling.</p>
                                 <button class="logo logo-admin mt-4 btn btn-sm">
-                                    <img src="assets/images/logo-sm-dark.png" alt="" height="30">
+                                    <img src="../img/favicon.png" alt="" height="40">
                                 </button>
                             </div>
                         </div>
@@ -74,6 +74,7 @@ include_once 'include/head.php';
                                     <div class="mt-3">
                                         <button class="btn btn-primary w-100 waves-effect waves-light" type="submit" name="dash-login">Log
                                             In</button>
+                                        <a href="../profile.php" class="btn btn-primary mt-2 w-100 waves-effect waves-light" type="submit" name="dash-login">Return</a>
                                     </div>
 
                                     <div class="mt-4 text-center">
