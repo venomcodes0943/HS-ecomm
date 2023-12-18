@@ -57,6 +57,24 @@
                         <li><a href="tasks-create.html">Create Task</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-message-alt-dots"></i>
+                        <span class="badge rounded-pill bg-danger float-end">6</span>
+                        <span>Messages</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="tasks-list.html">Inbox</a></li>
+                        <li><a href="tasks-kanban.html">New Message</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="waves-effect">
+                        <i class="bx bx-cart-alt"></i>
+                        <span class="badge rounded-pill bg-danger float-end">6</span>
+                        <span>Orders</span>
+                    </a>
+                </li>
 
 
                 <li class="menu-title">Components</li>
