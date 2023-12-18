@@ -64,6 +64,7 @@
                         <span>Messages</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="candidate-chat.php">Chat</a></li>
                         <li><a href="tasks-list.html">Inbox</a></li>
                         <li><a href="tasks-kanban.html">New Message</a></li>
                     </ul>
