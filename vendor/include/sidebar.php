@@ -82,8 +82,8 @@
                         <span>Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Profile Settings</a></li>
-                        <li><a href="#">Shop Settings</a></li>
+                        <li><a href="profile-setting.php">Profile Settings</a></li>
+                        <li><a href="shop-setting.php">Shop Settings</a></li>
                         <li><a href="#"></a></li>
                     </ul>
                 </li>
