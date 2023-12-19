@@ -8,7 +8,9 @@
             </div>
 
             <div class="mt-3">
-                <a href="#" class="text-body fw-medium font-size-16">Patrick Becker</a>
+                <a href="#" class="text-body fw-medium font-size-16"><?php
+                                                                        echo  $_SESSION['user_info']['u_fullname'];
+                                                                        ?></a>
                 <p class="text-muted mt-1 mb-0 font-size-13">UI/UX Designer</p>
             </div>
         </div>
@@ -31,6 +33,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="pages-profile.php">Profile</a></li>
+                        <li><a href="myshop.php">MyShop</a></li>
                         <li><a href="#">Invoice</a></li>
                         <li><a href="#">Pricing</a></li>
                     </ul>
@@ -87,121 +90,12 @@
                         <li><a href="#"></a></li>
                     </ul>
                 </li>
-
-                <!-- <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-checkbox-multiple-blank-outline"></i>
-                        <span>UI Elements</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ui-alerts.html">Alerts</a></li>
-                        <li><a href="ui-buttons.html">Buttons</a></li>
-                        <li><a href="ui-cards.html">Cards</a></li>
-                        <li><a href="ui-carousel.html">Carousel</a></li>
-                        <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                        <li><a href="ui-grid.html">Grid</a></li>
-                        <li><a href="ui-images.html">Images</a></li>
-                        <li><a href="ui-lightbox.html">Lightbox</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-rangeslider.html">Range Slider</a></li>
-                        <li><a href="ui-session-timeout.html">Session Timeout</a></li>
-                        <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                        <li><a href="ui-sweet-alert.html">Sweet-Alert</a></li>
-                        <li><a href="ui-tabs-accordions.html">Tabs & Accordions</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
-                        <li><a href="ui-video.html">Video</a></li>
-                        <li><a href="ui-general.html">General</a></li>
-                        <li><a href="ui-colors.html">Colors</a></li>
-                        <li><a href="ui-rating.html">Rating</a></li>
-                    </ul>
-                </li>
-
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="mdi mdi-newspaper"></i>
-                        <span class="badge rounded-pill bg-danger float-end">6</span>
-                        <span>Forms</span>
+                    <a href="../home.php" class="waves-effect">
+                    <i class="bx bx-left-arrow-alt"></i>
+                        <span>Exit</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="form-elements.html">Form Elements</a></li>
-                        <li><a href="form-validation.html">Form Validation</a></li>
-                        <li><a href="form-advanced.html">Form Advanced</a></li>
-                        <li><a href="form-editors.html">Form Editors</a></li>
-                        <li><a href="form-uploads.html">Form File Upload</a></li>
-                        <li><a href="form-xeditable.html">Form Xeditable</a></li>
-                        <li><a href="form-repeater.html">Form Repeater</a></li>
-                        <li><a href="form-wizard.html">Form Wizard</a></li>
-                        <li><a href="form-mask.html">Form Mask</a></li>
-                    </ul>
                 </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-clipboard-list-outline"></i>
-                        <span>Tables</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tables-basic.html">Basic Tables</a></li>
-                        <li><a href="tables-datatable.html">Data Tables</a></li>
-                        <li><a href="tables-responsive.html">Responsive Table</a></li>
-                        <li><a href="tables-editable.html">Editable Table</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-chart-donut"></i>
-                        <span>Charts</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="charts-apex.html">Apex charts</a></li>
-                        <li><a href="charts-chartjs.html">Chartjs Chart</a></li>
-                        <li><a href="charts-flot.html">Flot Chart</a></li>
-                        <li><a href="charts-knob.html">Jquery Knob Chart</a></li>
-                        <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-emoticon-happy-outline"></i>
-                        <span>Icons</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="icons-boxicons.html">Boxicons</a></li>
-                        <li><a href="icons-materialdesign.html">Material Design</a></li>
-                        <li><a href="icons-dripicons.html">Dripicons</a></li>
-                        <li><a href="icons-fontawesome.html">Font awesome</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-map-marker-outline"></i>
-                        <span>Maps</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="maps-google.html">Google Maps</a></li>
-                        <li><a href="maps-vector.html">Vector Maps</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-file-tree"></i>
-                        <span>Multi Level</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);">Level 1.1</a></li>
-                        <li><a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="javascript: void(0);">Level 2.1</a></li>
-                                <li><a href="javascript: void(0);">Level 2.2</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li> -->
-
             </ul>
         </div>
         <!-- Sidebar -->

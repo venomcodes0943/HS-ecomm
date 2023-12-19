@@ -55,6 +55,7 @@ include_once 'include/head.php';
                     $result = mysqli_query($conn, $personal_info);
                     if ($result) {
                         $info = mysqli_fetch_assoc($result);
+                        $_SESSION['user_info'] = $info;
                     }
                     ?>
                     <!-- start row -->
@@ -72,7 +73,7 @@ include_once 'include/head.php';
                                             </div>
 
                                             <div class="mt-3 ">
-                                                <a href="#" class="text-reset fw-medium font-size-16"><?php echo $info['u_fullname'] ?></a>
+                                                <a href="#" class="text-reset fw-medium font-size-16"><?php echo $_SESSION['user_info']['u_fullname'] ?></a>
                                                 <p class="text-body mt-1 mb-1">UI/UX Designer</p>
 
                                                 <span class="badge bg-success">Follow Me</span>
@@ -147,12 +148,12 @@ include_once 'include/head.php';
 
                                     <div class="mt-3">
                                         <p class="font-size-12 text-muted mb-1">Email Address</p>
-                                        <h6 class=""><?php echo $info['u_email']; ?></h6>
+                                        <h6 class=""><?php echo $_SESSION['user_info']['u_email'] ?></h6>
                                     </div>
 
                                     <div class="mt-3">
                                         <p class="font-size-12 text-muted mb-1">Phone number</p>
-                                        <h6 class=""><?php echo $info['u_phone']; ?></h6>
+                                        <h6 class=""><?php echo $_SESSION['user_info']['u_phone']; ?></h6>
                                     </div>
 
                                     <div class="mt-3">
