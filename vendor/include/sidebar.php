@@ -31,8 +31,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="pages-profile.php">Profile</a></li>
-                        <li><a href="pages-invoice.html">Invoice</a></li>
-                        <li><a href="pages-pricing.html">Pricing</a></li>
+                        <li><a href="#">Invoice</a></li>
+                        <li><a href="#">Pricing</a></li>
                     </ul>
                 </li>
                 <li>
@@ -41,8 +41,8 @@
                         <span>Email</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
+                        <li><a href="email-inbox.php">Inbox</a></li>
+                        <li><a href="email-read.php">Read Email</a></li>
                     </ul>
                 </li>
 
@@ -52,9 +52,9 @@
                         <span>Tasks</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tasks-list.html">Task List</a></li>
-                        <li><a href="tasks-kanban.html">Kanban Board</a></li>
-                        <li><a href="tasks-create.html">Create Task</a></li>
+                        <li><a href="#">Task List</a></li>
+                        <li><a href="#">Kanban Board</a></li>
+                        <li><a href="#">Create Task</a></li>
                     </ul>
                 </li>
                 <li>
@@ -64,7 +64,7 @@
                         <span>Messages</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="candidate-chat.php">Chat</a></li>
+                        <li><a href="chat.php">Chat</a></li>
                         <li><a href="tasks-list.html">Inbox</a></li>
                         <li><a href="tasks-kanban.html">New Message</a></li>
                     </ul>
@@ -76,11 +76,19 @@
                         <span>Orders</span>
                     </a>
                 </li>
-
-
-                <li class="menu-title">Components</li>
-
                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="dripicons-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Profile Settings</a></li>
+                        <li><a href="#">Shop Settings</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </li>
+
+                <!-- <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-checkbox-multiple-blank-outline"></i>
                         <span>UI Elements</span>
@@ -192,7 +200,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
         </div>
