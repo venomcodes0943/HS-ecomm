@@ -51,7 +51,7 @@ include_once 'include/head.php';
                     <!-- end page title -->
                     <?php
                     $user_id = $_SESSION['user_id'];
-                    $personal_info = "SELECT * FROM `w-users` WHERE `user_id` = '$user_id'";
+                    $personal_info = "SELECT *  FROM `w-users` JOIN `vendor` ON `w-users`.`user_id` = `vendor`.`user_id` WHERE `w-users`.`user_id` = '$user_id'";
                     $result = mysqli_query($conn, $personal_info);
                     if ($result) {
                         $info = mysqli_fetch_assoc($result);
@@ -143,7 +143,7 @@ include_once 'include/head.php';
                                     <h5 class="card-title mb-3">Personal Information</h5>
 
                                     <p class="card-title-desc">
-                                        Hi I'm Patrick Becker, been industry's standard dummy ultrices Cambridge.
+                                        Hi I'm <?php echo $_SESSION['user_info']['u_fullname'] ?>
                                     </p>
 
                                     <div class="mt-3">
@@ -155,13 +155,6 @@ include_once 'include/head.php';
                                         <p class="font-size-12 text-muted mb-1">Phone number</p>
                                         <h6 class=""><?php echo $_SESSION['user_info']['u_phone']; ?></h6>
                                     </div>
-
-                                    <div class="mt-3">
-                                        <p class="font-size-12 text-muted mb-1">Office Address</p>
-                                        <h6 class="">2240 Denver Avenue
-                                            Los Angeles, CA 90017</h6>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>

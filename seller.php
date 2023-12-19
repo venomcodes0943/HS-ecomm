@@ -89,8 +89,8 @@ include_once("include/navbar.php")
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12">
-                                        <label for="user">Full Name <span class="f-red">*</span></label>
-                                        <input type="text" z name="sell-username" id="user" class="form-control bdr" placeholder="Full Name *">
+                                        <label for="user">Vendor Name <span class="f-red">*</span></label>
+                                        <input type="text" z name="sell-username" id="user" class="form-control bdr" placeholder="Vendor Name *">
                                     </div>
                                     <div class="col-md-6 col-xs-12">
                                         <label for="phone">Phone <span class="f-red">*</span></label>
