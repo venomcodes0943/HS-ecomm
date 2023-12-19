@@ -65,8 +65,11 @@ include_once 'include/head.php';
                                             $vendor = "INSERT INTO `vendor`(`user_id`,`vendor_name`, `vendor_description`) VALUES ('$user_id','$shop_name','$shop_bio')";
                                             $vresult = mysqli_query($conn, $vendor);
                                             if ($vresult) {
-                                                echo '<div class="alert alert-success text-center fw-bold" role="alert">
-                                                  Changes Successfull</div>';
+                                                echo '
+                                                    <script>
+                                                    window.location.href = "http://localhost/HS-Ecomm/vendor/pages-profile.php"
+                                                    </script>
+                                                ';
                                             }
                                         }
                                     }
