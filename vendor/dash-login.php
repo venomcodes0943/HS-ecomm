@@ -42,7 +42,7 @@ include_once 'include/head.php';
                                                 $_SESSION['user_id'] = $row['user_id'];
                                                 $_SESSION['vendor_name'] = $row['u_username'];
                                                 $_SESSION['vendor_email'] = $row['u_email'];
-                                                header("location: index.php");
+                                                header("location: pages-profile.php");
                                             } else {
                                                 echo '<div class="alert alert-danger" role="alert">
                                                 Incorrect Password</div>';

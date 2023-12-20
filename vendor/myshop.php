@@ -134,12 +134,15 @@ include_once 'include/head.php';
                                                 $pprice = $_POST['pprice'];
                                                 $pcategory = $_POST['pcategory'];
                                                 $pstock = $_POST['pstock'];
+                                                $p_feature1 = $_POST['p_feature1'];
+                                                $p_feature2 = $_POST['p_feature2'];
+                                                $p_feature3 = $_POST['p_feature3'];
                                                 $folder = "pupload/";
                                                 $pimage = $_FILES['pimage']['name'];
                                                 $target = $folder . $pimage;
                                                 move_uploaded_file($_FILES['pimage']['tmp_name'], $target);
                                                 $pbio = $_POST['pbio'];
-                                                if (empty($pname) or empty($pprice) or empty($pcategory) or empty($pstock) or empty($pimage) or empty($pbio)) {
+                                                if (empty($pname) or empty($pprice) or empty($pcategory) or empty($pstock) or empty($pimage) or empty($pbio) or empty($p_feature1) or empty($p_feature2) or empty($p_feature3)) {
                                                     echo '<div class="alert alert-danger text-center fw-bold" role="alert">
                                             Empty Feild</div>';
                                                 } elseif (strlen($pstock) > 2) {
@@ -148,7 +151,7 @@ include_once 'include/head.php';
                                                 } elseif (str_word_count($pbio) > 40) {
                                                     echo '<div class="alert alert-danger text-center fw-bold" role="alert">Bio Only Takes 40 Words</div>';
                                                 } else {
-                                                    $sql2 = "INSERT INTO `vendor_product`(`vendor_id`, `p_name`, `p_price`, `p_category`, `p_stock`, `p_image`, `p_bio`) VALUES ('$row[vendor_id]','$pname','$pprice','$pcategory','$pstock','$pimage','$pbio')";
+                                                    $sql2 = "INSERT INTO `vendor_product`(`vendor_id`, `p_name`, `p_price`, `p_category`, `p_stock`, `p_image`, `p_bio`,`p_feature1`,`p_feature2`,`p_feature3`) VALUES ('$row[vendor_id]','$pname','$pprice','$pcategory','$pstock','$pimage','$pbio','$p_feature1','$p_feature2','$p_feature3')";
                                                     $run = mysqli_query($conn, $sql2);
                                                     if ($run) {
                                                         echo '<div class="alert alert-success text-center fw-bold" role="alert">
@@ -192,6 +195,18 @@ include_once 'include/head.php';
                                                         <div class="mb-3">
                                                             <label class="form-label" for="pimage">Product Image</label>
                                                             <input type="file" name="pimage" class="form-control" id="pimage">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="pimage">Product Feature 1</label>
+                                                            <input type="text" placeholder="Enter Your Product Feature" name="p_feature1" class="form-control" id="pimage">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="pimage">Product Feature 2</label>
+                                                            <input type="text" placeholder="Enter Your Product Feature" name="p_feature2" class="form-control" id="pimage">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="pimage">Product Feature 3</label>
+                                                            <input type="text" placeholder="Enter Your Product Feature" name="p_feature3" class="form-control" id="pimage">
                                                         </div>
                                                     </div> <!-- end col -->
                                                     <div class="col-12">
