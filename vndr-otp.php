@@ -23,7 +23,9 @@ if (isset($_POST['verified'])) {
         $u_role = 'vendor';
         $u_fullname = $_SESSION['u_fullname'];
         $u_phone = $_SESSION['u_phone'];
-        $insert_query = "UPDATE `w-users` SET `u_fullname`= '$u_fullname',`u_phone`='$u_phone',`email_verify`='$v_everify',`user_role`='$u_role' WHERE `user_id` = '$user_id'";
+        $u_password = $_SESSION['u_pass'];
+        $u_passwordhash = $_SESSION['u_pass_hash'];
+        $insert_query = "UPDATE `w-users` SET `u_fullname`= '$u_fullname',`u_phone`='$u_phone',`u_password`='$u_passwordhash',`simple_pswd`='$u_password',`email_verify`='$v_everify',`user_role`='$u_role' WHERE `user_id` = '$user_id'";
 
         $insert_query_sql = mysqli_query($conn, $insert_query);
 

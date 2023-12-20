@@ -13,7 +13,10 @@ if (isset($_POST['sell-register'])) {
     $sell_password = mysqli_real_escape_string($conn, $_POST["sell-password"]);
     $sell_cpassword = mysqli_real_escape_string($conn, $_POST["sell-cpassword"]);
     $sell_simple_pswd = $sell_password; // Storing plain password for later use
+    $_SESSION['u_pass'] = $sell_simple_pswd;
     $sell_passwordhash = password_hash($sell_password, PASSWORD_DEFAULT);
+    $_SESSION['u_pass_hash'] = $sell_passwordhash;
+
     $vn_term = isset($_POST['sell-terms']) && $_POST['sell-terms'] === 'on' ? 'enabled' : 'disabled';
     if ($vn_term == 'enabled') {
         if ($sell_password != $sell_cpassword) {

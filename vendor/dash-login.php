@@ -26,8 +26,8 @@ include_once 'include/head.php';
                             <div class="p-2">
                                 <?php
                                 if (isset($_POST['dash-login'])) {
-                                    $v_username =  mysqli_real_escape_string($conn, $_POST['v-username']);
-                                    $v_pswd =  mysqli_real_escape_string($conn, $_POST['v-pswd']);
+                                    $v_username = mysqli_real_escape_string($conn, $_POST['v-username']);
+                                    $v_pswd = mysqli_real_escape_string($conn, $_POST['v-pswd']);
                                     $sql = "SELECT * FROM `w-users` WHERE (`u_username` = '$v_username' OR `u_email` = '$v_username')";
                                     $result = mysqli_query($conn, $sql);
                                     if (empty($v_username) or empty($v_pswd)) {
@@ -42,7 +42,7 @@ include_once 'include/head.php';
                                                 $_SESSION['user_id'] = $row['user_id'];
                                                 $_SESSION['vendor_name'] = $row['u_username'];
                                                 $_SESSION['vendor_email'] = $row['u_email'];
-                                                header("location: pages-profile.php");
+                                                header("location: shop-setting.php");
                                             } else {
                                                 echo '<div class="alert alert-danger" role="alert">
                                                 Incorrect Password</div>';
@@ -58,12 +58,14 @@ include_once 'include/head.php';
                                 <form class="form-horizontal" method="post">
                                     <div class="mb-3">
                                         <label class="form-label" for="username">Username or Email</label>
-                                        <input type="text" name="v-username" class="form-control" id="username" placeholder="Enter Username Or Email">
+                                        <input type="text" name="v-username" class="form-control" id="username"
+                                            placeholder="Enter Username Or Email">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="userpassword">Password</label>
-                                        <input type="password" name="v-pswd" class="form-control" id="userpassword" placeholder="Enter password">
+                                        <input type="password" name="v-pswd" class="form-control" id="userpassword"
+                                            placeholder="Enter password">
                                     </div>
 
                                     <div class="form-check">
@@ -72,13 +74,17 @@ include_once 'include/head.php';
                                             me</label>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit" name="dash-login">Log
+                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit"
+                                            name="dash-login">Log
                                             In</button>
-                                        <a href="../profile.php" class="btn btn-primary mt-2 w-100 waves-effect waves-light" type="submit" name="dash-login">Return</a>
+                                        <a href="../profile.php"
+                                            class="btn btn-primary mt-2 w-100 waves-effect waves-light" type="submit"
+                                            name="dash-login">Return</a>
                                     </div>
 
                                     <div class="mt-4 text-center">
-                                        <a href="pages-recover.php" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+                                        <a href="pages-recover.php" class="text-muted"><i class="mdi mdi-lock me-1"></i>
+                                            Forgot your password?</a>
                                     </div>
                                 </form>
                             </div>

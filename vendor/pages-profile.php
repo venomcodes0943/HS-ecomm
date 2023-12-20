@@ -55,7 +55,7 @@ include_once 'include/head.php';
                     $result = mysqli_query($conn, $personal_info);
                     if ($result) {
                         $info = mysqli_fetch_assoc($result);
-                        $_SESSION['user_info'] = $info;
+                        $_SESSION['user_info'] = $info; 
                     }
                     ?>
                     <!-- start row -->
