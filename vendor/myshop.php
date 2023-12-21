@@ -49,7 +49,7 @@ include_once 'include/head.php';
                         if ($vid_rlst) {
                             $row = mysqli_fetch_assoc($vid_rlst);
                             if (mysqli_num_rows($vid_rlst) < 1) {
-                                echo '<a href="shop-setting.php" class="btn btn-outline-danger my-5 w-75 m-auto">Set Up Your Shop To Add Product</a>';
+                                echo '<a href="shop-setting.php" class="btn btn-outline-danger my-5 w-75 m-auto">Set Up Your Shop First</a>';
                             } else {
                         ?>
                                 <div class="col-md-12 col-xl-3">

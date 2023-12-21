@@ -228,7 +228,8 @@ include_once 'backend/database/config.php';
         <div class="col-md-9 col-sm-12 col-xs-12 collection-list">
             <div class="e-product">
                 <div class="pd-banner">
-                    <a href="#" class="image-bd effect_img2"><img src="img/shop-banner_2.jpg" alt="" class="img-reponsive"></a>
+                    <a href="#" class="image-bd effect_img2"><img src="img/shop-banner_2.jpg" alt=""
+                            class="img-reponsive"></a>
                 </div>
                 <div class="pd-top">
                     <h1 class="title">Shop</h1>
@@ -254,40 +255,65 @@ include_once 'backend/database/config.php';
                         }
                         $psql = "SELECT * FROM `vendor_product` WHERE `vendor_id` = '$ven_fetch[vendor_id]'";
                         $presult = mysqli_query($conn, $psql);
-                        while ($prow = mysqli_fetch_assoc($presult)) {
-                        ?>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
-                                <div class="pd-bd product-inner">
-                                    <div class="product-img">
-                                        <a href="#"><img src="vendor/pupload/<?php echo $prow['p_image'] ?>" alt="" class="img-reponsive"></a>
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="color-group"></div>
-                                        <div class="element-list element-list-left">
-                                            <ul class="desc-list">
-                                                <li><?php echo $prow['p_feature1'] ?></li>
-                                                <li><?php echo $prow['p_feature2'] ?></li>
-                                                <li><?php echo $prow['p_feature3'] ?></li>
-                                            </ul>
+                        if (mysqli_num_rows($presult) >= 1) {
+                            while ($prow = mysqli_fetch_assoc($presult)) {
+                                ?>
+                                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 product-item">
+                                    <div class="pd-bd product-inner">
+                                        <div class="product-img">
+                                            <a href="#"><img src="vendor/pupload/<?php echo $prow['p_image'] ?>" alt="" class="img-reponsive"></a>
                                         </div>
-                                        <div class="element-list element-list-middle">
-                                            <div class="product-rating bd-rating">
-                                                <span class="star star-5"></span>
-                                                <span class="star star-4"></span>
-                                                <span class="star star-3"></span>
-                                                <span class="star star-2"></span>
-                                                <span class="star star-1"></span>
-                                                <div class="number-rating">( 896 reviews )</div>
+                                        <div class="product-info">
+                                            <div class="color-group"></div>
+                                            <div class="element-list element-list-left">
+                                                <ul class="desc-list">
+                                                    <li>
+                                                        <?php echo $prow['p_feature1'] ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php echo $prow['p_feature2'] ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php echo $prow['p_feature3'] ?>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <p class="product-cate"><?php echo $prow['p_category'] ?></p>
-                                            <h3 class="product-title"><a href="#"><?php echo $prow['p_name'] ?></a></h3>
-                                            <div class="product-bottom">
-                                                <div class="product-price"><span>$<?php echo $prow['p_price'] ?></span></div>
-                                                <a href="#" class="btn-icon btn-view">
-                                                    <span class="icon-bg icon-view"></span>
-                                                </a>
+                                            <div class="element-list element-list-middle">
+                                                <div class="product-rating bd-rating">
+                                                    <span class="star star-5"></span>
+                                                    <span class="star star-4"></span>
+                                                    <span class="star star-3"></span>
+                                                    <span class="star star-2"></span>
+                                                    <span class="star star-1"></span>
+                                                    <div class="number-rating">( 896 reviews )</div>
+                                                </div>
+                                                <p class="product-cate">
+                                                    <?php echo $prow['p_category'] ?>
+                                                </p>
+                                                <h3 class="product-title"><a href="#">
+                                                        <?php echo $prow['p_name'] ?>
+                                                    </a></h3>
+                                                <div class="product-bottom">
+                                                    <div class="product-price"><span>$
+                                                            <?php echo $prow['p_price'] ?>
+                                                        </span></div>
+                                                    <a href="#" class="btn-icon btn-view">
+                                                        <span class="icon-bg icon-view"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="product-bottom-group">
+                                                    <a href="cart.php" class="btn-icon">
+                                                        <span class="icon-bg icon-cart"></span>
+                                                    </a>
+                                                    <a href="#" class="btn-icon">
+                                                        <span class="icon-bg icon-wishlist"></span>
+                                                    </a>
+                                                    <a href="#" class="btn-icon">
+                                                        <span class="icon-bg icon-compare"></span>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="product-bottom-group">
+                                            <div class="product-button-group">
                                                 <a href="cart.php" class="btn-icon">
                                                     <span class="icon-bg icon-cart"></span>
                                                 </a>
@@ -299,21 +325,19 @@ include_once 'backend/database/config.php';
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="product-button-group">
-                                            <a href="cart.php" class="btn-icon">
-                                                <span class="icon-bg icon-cart"></span>
-                                            </a>
-                                            <a href="#" class="btn-icon">
-                                                <span class="icon-bg icon-wishlist"></span>
-                                            </a>
-                                            <a href="#" class="btn-icon">
-                                                <span class="icon-bg icon-compare"></span>
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <div class="text-center" style="margin: 30px;padding: 15px 10px;">
+                                <a href="profile.php" class="h1" style="text-decoration: none;">Add Your Product From Your
+                                    Store</a>
                             </div>
-                        <?php
+
+
+                            <?php
                         }
                         ?>
                     </div>
@@ -464,7 +488,8 @@ include_once 'backend/database/config.php';
                 </div>
 
                 <div class="feature-block text-center">
-                    <div class="feature-block-img"><img src="img/feature/telephone.png" alt="" class="img-reponsive"></div>
+                    <div class="feature-block-img"><img src="img/feature/telephone.png" alt="" class="img-reponsive">
+                    </div>
                     <div class="feature-info">
                         <h3>24/7 Help Center</h3>
                         <p>Round-the-clock assistance for a smooth shopping experience.</p>
