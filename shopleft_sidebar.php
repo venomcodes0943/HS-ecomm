@@ -247,8 +247,7 @@ include_once 'backend/database/config.php';
                 <div class="product-collection-grid product-grid">
                     <div class="row">
                         <?php
-                        $user_id = $_SESSION['user_id'];
-                        $ven_sql = "SELECT `vendor_id` FROM `vendor` WHERE `user_id` = '$user_id'";
+                        $ven_sql = "SELECT `vendor_id` FROM `vendor`";
                         $ven_result = mysqli_query($conn, $ven_sql);
                         if ($ven_result) {
                             $ven_fetch = mysqli_fetch_assoc($ven_result);
