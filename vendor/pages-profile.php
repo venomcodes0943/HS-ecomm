@@ -49,15 +49,7 @@ include_once 'include/head.php';
                         </div>
                     </div>
                     <!-- end page title -->
-                    <?php
-                    $user_id = $_SESSION['user_id'];
-                    $personal_info = "SELECT *  FROM `w-users` JOIN `vendor` ON `w-users`.`user_id` = `vendor`.`user_id` WHERE `w-users`.`user_id` = '$user_id'";
-                    $result = mysqli_query($conn, $personal_info);
-                    if ($result) {
-                        $info = mysqli_fetch_assoc($result);
-                        $_SESSION['user_info'] = $info; 
-                    }
-                    ?>
+                    
                     <!-- start row -->
                     <div class="row">
                         <div class="col-md-12 col-xl-3">

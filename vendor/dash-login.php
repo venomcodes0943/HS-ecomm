@@ -43,6 +43,14 @@ include_once 'include/head.php';
                                                 $_SESSION['vendor_name'] = $row['u_username'];
                                                 $_SESSION['vendor_email'] = $row['u_email'];
                                                 header("location: shop-setup.php");
+                                                $user_id = $_SESSION['user_id'];
+                                                $personal_info = "SELECT *  FROM `w-users` JOIN `vendor` ON `w-users`.`user_id` = `vendor`.`user_id` WHERE `w-users`.`user_id` = '$user_id'";
+                                                $result = mysqli_query($conn, $personal_info);
+                                                if ($result) {
+                                                    $info = mysqli_fetch_assoc($result);
+                                                    $_SESSION['user_info'] = $info;
+                                                    // print_r($_SESSION);
+                                                }
                                             } else {
                                                 echo '<div class="alert alert-danger" role="alert">
                                                 Incorrect Password</div>';
@@ -58,14 +66,12 @@ include_once 'include/head.php';
                                 <form class="form-horizontal" method="post">
                                     <div class="mb-3">
                                         <label class="form-label" for="username">Username or Email</label>
-                                        <input type="text" name="v-username" class="form-control" id="username"
-                                            placeholder="Enter Username Or Email">
+                                        <input type="text" name="v-username" class="form-control" id="username" placeholder="Enter Username Or Email">
                                     </div>
 
                                     <div class="mb-3">
                                         <label class="form-label" for="userpassword">Password</label>
-                                        <input type="password" name="v-pswd" class="form-control" id="userpassword"
-                                            placeholder="Enter password">
+                                        <input type="password" name="v-pswd" class="form-control" id="userpassword" placeholder="Enter password">
                                     </div>
 
                                     <div class="form-check">
@@ -74,12 +80,9 @@ include_once 'include/head.php';
                                             me</label>
                                     </div>
                                     <div class="mt-3">
-                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit"
-                                            name="dash-login">Log
+                                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit" name="dash-login">Log
                                             In</button>
-                                        <a href="../profile.php"
-                                            class="btn btn-primary mt-2 w-100 waves-effect waves-light" type="submit"
-                                            name="dash-login">Return</a>
+                                        <a href="../profile.php" class="btn btn-primary mt-2 w-100 waves-effect waves-light" type="submit" name="dash-login">Return</a>
                                     </div>
 
                                     <div class="mt-4 text-center">

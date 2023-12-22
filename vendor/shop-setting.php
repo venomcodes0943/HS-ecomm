@@ -6,6 +6,18 @@ session_start();
 include_once '../backend/database/config.php';
 include_once 'include/head.php';
 ?>
+<?php
+if(isset($_POST['shop_info'])){
+    $shop_name = $_POST['shop_name'];
+    $shop_bio = $_POST['shop_bio'];
+    $vendor_id = $_SESSION['user_info']['user_id'];
+    $update = "UPDATE `vendor` SET `vendor_name` = '$shop_name', `vendor_description` = '$shop_bio' WHERE `user_id`= '$vendor_id'";
+    $query = mysqli_query($conn,$update);
+    if($query){
+        $succes_msg[] = ['text' => 'Updated', 'icon' => 'success'];
+    }
+}
+?>
 
 <body data-layout="detached" data-topbar="colored">
 
@@ -53,16 +65,23 @@ include_once 'include/head.php';
                                     <h2 class="card-title">Shop Setting</h2>
                                     <p class="card-title-desc">Set Up Your Shop Name Accoring Your Wish</p>
                                     <?php
-                                    print_r($_SESSION);
+                                    // print_r($_SESSION);
                                     $vendor_id = $_SESSION['user_info']['user_id'];
                                     $select = "SELECT * FROM `vendor` WHERE `user_id` = '$vendor_id'";
+                                    $query = mysqli_query($conn,$select);
+                                    $row = mysqli_num_rows($query);
+                                    if($row > 0){
+                                        $row2 = mysqli_fetch_assoc($query);
+                                    }else{
+                                        echo 'no';
+                                    }
                                     ?>
                                     <form method="post">
                                         <div class="row mt-4">
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="firstname">Shop Name</label>
-                                                    <input type="text" name="shop_name" class="form-control" id="firstname" placeholder="Enter shop name">
+                                                    <input type="text" name="shop_name" value="<?php echo $row2['vendor_name']?>" class="form-control" id="firstname" placeholder="Enter shop name">
                                                 </div>
                                             </div><!-- end col -->
                                         </div>
@@ -71,7 +90,7 @@ include_once 'include/head.php';
                                             <div class="col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="userbio">Shop Bio</label>
-                                                    <textarea class="form-control" id="userbio" rows="4" name="shop_bio" placeholder="Write something..."></textarea>
+                                                    <textarea class="form-control" id="userbio" rows="4" name="shop_bio" placeholder="Write something..."><?php echo $row2['vendor_description']?></textarea>
                                                 </div>
                                             </div> <!-- end col -->
                                         </div>

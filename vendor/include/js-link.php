@@ -9,6 +9,7 @@
 
  <!-- apexcharts -->
  <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+ <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
 
  <script src="assets/js/pages/dashboard-2.init.js"></script>
 
