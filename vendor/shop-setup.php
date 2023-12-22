@@ -5,6 +5,32 @@
 session_start();
 include_once '../backend/database/config.php';
 include_once 'include/head.php';
+
+$vendor_id = $_SESSION['vendor_id'];
+$vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
+$vquery = mysqli_query($conn, $vselect);
+$vrow = mysqli_fetch_assoc($vquery);
+echo $vrow['v_setup'];
+// if($vrow['v_setup'] == 'comp-setup'){
+//     header("location: pages-profile.php");
+// }
+
+if (isset($_POST['shop_info'])) {
+    $shop_name = $_POST['shop_name'];
+    $shop_bio = $_POST['shop_bio'];
+    if (empty($shop_name) or empty($shop_bio)) {
+        $succes_msg[] = ['text' => 'Empty Field', 'icon' => 'error'];
+    } else {
+        $user_id = $_SESSION['user_id'];
+        $v_setup = 'comp-setup';
+        $vendor = "INSERT INTO `vendor`(`user_id`,`vendor_name`, `vendor_description`,`v_setup`) VALUES ('$user_id','$shop_name','$shop_bio','$v_setup')";
+        $vresult = mysqli_query($conn, $vendor);
+        if ($vresult) {
+
+            header('location: pages-profile.php');
+        }
+    }
+}
 ?>
 
 <body data-layout="detached" data-topbar="colored">
@@ -21,7 +47,7 @@ include_once 'include/head.php';
             include_once 'include/header.php';
             ?>
             <?php
-            include_once 'include/sidebar.php';
+            // include_once 'include/sidebar.php';
 
             ?>
             <!-- Left Sidebar End -->
@@ -34,32 +60,36 @@ include_once 'include/head.php';
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
-                                <h4 class="page-title mb-0 font-size-18">Shop-Settings</h4>
+                                <h4 class="page-title mb-0 font-size-18">Shop-Setup</h4>
 
-                                <div class="page-title-right">
+                                <!-- <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Settings</a></li>
                                         <li class="breadcrumb-item active">Shop-Settings</li>
                                     </ol>
-                                </div>
+                                </div> -->
 
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 col-md-8 m-auto">
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    $vendor_id = $_SESSION['vendor_id'];
+                                    $vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
+                                    $vquery = mysqli_query($conn, $vselect);
+                                    if ($vquery) {
+                                        $vrow = mysqli_fetch_assoc($vquery);
+                                        print_r($vrow);
+                                    }
+                                    ?>
                                     <h2 class="card-title">Shop Setting</h2>
                                     <p class="card-title-desc">Set Up Your Shop Name Accoring Your Wish</p>
-                                    <?php
-                                    print_r($_SESSION);
-                                    $vendor_id = $_SESSION['user_info']['user_id'];
-                                    $select = "SELECT * FROM `vendor` WHERE `user_id` = '$vendor_id'";
-                                    ?>
                                     <form method="post">
                                         <div class="row mt-4">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="firstname">Shop Name</label>
                                                     <input type="text" name="shop_name" class="form-control" id="firstname" placeholder="Enter shop name">

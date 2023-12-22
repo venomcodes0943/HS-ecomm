@@ -9,6 +9,7 @@
 
     <link rel="shortcut icon" type="favicon" href="../../img/favicon.png">
 
+    <script src="assets\js\sweet-alert.js"></script>
     <!-- Bootstrap Css -->
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->

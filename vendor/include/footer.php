@@ -1,3 +1,17 @@
+<?php
+if (isset($succes_msg)) {
+    foreach ($succes_msg as $succes_msg) {
+        echo '
+            <script>
+            swal({
+                title: "' . $succes_msg['text'] . '",
+                icon: "' . $succes_msg['icon'] . '",
+            });
+            </script>
+        ';
+    }
+}
+?>
 <footer class="footer">
     <div class="container-fluid">
         <div class="row">

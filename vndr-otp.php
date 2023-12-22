@@ -5,14 +5,6 @@ if (!isset($_SESSION['user_id'])) {
     header("location: home.php");
 }
 
-if (!isset($_SESSION['user_otp_sent'])) {
-} else {
-    $otp_sent = $_SESSION['user_otp_sent'];
-    $otp_set = $_SESSION['user_otp_set'];
-    if ($otp_sent == "true" && $otp_set == "true") {
-        header("location: profile.php");
-    }
-}
 
 if (isset($_POST['verified'])) {
     $user_otp = $_POST['verify-code'];
