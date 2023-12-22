@@ -6,11 +6,7 @@ session_start();
 include_once '../backend/database/config.php';
 include_once 'include/head.php';
 
-$vendor_id = $_SESSION['vendor_id'];
-$vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
-$vquery = mysqli_query($conn, $vselect);
-$vrow = mysqli_fetch_assoc($vquery);
-echo $vrow['v_setup'];
+
 // if($vrow['v_setup'] == 'comp-setup'){
 //     header("location: pages-profile.php");
 // }
@@ -32,6 +28,17 @@ if (isset($_POST['shop_info'])) {
     }
 }
 ?>
+<?php
+$vendor_id = $_SESSION['vendor_id'];
+$vselect = "SELECT * FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
+$vquery = mysqli_query($conn, $vselect);
+if ($vquery) {
+    $vrow = mysqli_fetch_assoc($vquery);
+} else {
+    echo "SORRY";
+}
+
+?>
 
 <body data-layout="detached" data-topbar="colored">
 
@@ -48,7 +55,7 @@ if (isset($_POST['shop_info'])) {
             ?>
             <?php
             // include_once 'include/sidebar.php';
-
+            
             ?>
             <!-- Left Sidebar End -->
 
@@ -76,15 +83,6 @@ if (isset($_POST['shop_info'])) {
                         <div class="col-12 col-md-8 m-auto">
                             <div class="card">
                                 <div class="card-body">
-                                    <?php
-                                    $vendor_id = $_SESSION['vendor_id'];
-                                    $vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
-                                    $vquery = mysqli_query($conn, $vselect);
-                                    if ($vquery) {
-                                        $vrow = mysqli_fetch_assoc($vquery);
-                                        print_r($vrow);
-                                    }
-                                    ?>
                                     <h2 class="card-title">Shop Setting</h2>
                                     <p class="card-title-desc">Set Up Your Shop Name Accoring Your Wish</p>
                                     <form method="post">
@@ -92,7 +90,8 @@ if (isset($_POST['shop_info'])) {
                                             <div class="col-md-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="firstname">Shop Name</label>
-                                                    <input type="text" name="shop_name" class="form-control" id="firstname" placeholder="Enter shop name">
+                                                    <input type="text" name="shop_name" class="form-control"
+                                                        id="firstname" placeholder="Enter shop name">
                                                 </div>
                                             </div><!-- end col -->
                                         </div>
@@ -101,12 +100,14 @@ if (isset($_POST['shop_info'])) {
                                             <div class="col-12">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="userbio">Shop Bio</label>
-                                                    <textarea class="form-control" id="userbio" rows="4" name="shop_bio" placeholder="Write something..."></textarea>
+                                                    <textarea class="form-control" id="userbio" rows="4" name="shop_bio"
+                                                        placeholder="Write something..."></textarea>
                                                 </div>
                                             </div> <!-- end col -->
                                         </div>
                                         <button class="btn btn-primary" type="submit" name="shop_info">Submit</button>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
