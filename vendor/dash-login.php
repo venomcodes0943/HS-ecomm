@@ -39,7 +39,6 @@ include_once 'include/head.php';
                                             $row = mysqli_fetch_assoc($result);
                                             if (password_verify($v_pswd, $row['u_password'])) {
                                                 session_start();
-                                                $_SESSION['vendor_id'] = $row['vendor_id'];
                                                 $_SESSION['user_id'] = $row['user_id'];
                                                 $_SESSION['vendor_name'] = $row['u_username'];
                                                 $_SESSION['vendor_email'] = $row['u_email'];

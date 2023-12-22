@@ -6,14 +6,15 @@ session_start();
 include_once '../backend/database/config.php';
 include_once 'include/head.php';
 
-$vendor_id = $_SESSION['vendor_id'];
-$vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
+$vendor_id = $_SESSION['user_id'];
+$vselect = "SELECT `v_setup` FROM `vendor` WHERE `user_id` = '$vendor_id'";
 $vquery = mysqli_query($conn, $vselect);
-$vrow = mysqli_fetch_assoc($vquery);
-echo $vrow['v_setup'];
-// if($vrow['v_setup'] == 'comp-setup'){
-//     header("location: pages-profile.php");
-// }
+if ($vquery) {
+    $vrow = mysqli_fetch_assoc($vquery);
+    if($vrow['v_setup'] == 'comp-setup'){
+        header("location: pages-profile.php");
+    }
+}
 
 if (isset($_POST['shop_info'])) {
     $shop_name = $_POST['shop_name'];
@@ -77,13 +78,7 @@ if (isset($_POST['shop_info'])) {
                             <div class="card">
                                 <div class="card-body">
                                     <?php
-                                    $vendor_id = $_SESSION['vendor_id'];
-                                    $vselect = "SELECT `v_setup` FROM `vendor` WHERE `vendor_id` = '$vendor_id'";
-                                    $vquery = mysqli_query($conn, $vselect);
-                                    if ($vquery) {
-                                        $vrow = mysqli_fetch_assoc($vquery);
-                                        print_r($vrow);
-                                    }
+
                                     ?>
                                     <h2 class="card-title">Shop Setting</h2>
                                     <p class="card-title-desc">Set Up Your Shop Name Accoring Your Wish</p>
